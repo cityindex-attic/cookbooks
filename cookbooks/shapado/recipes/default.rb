@@ -20,9 +20,12 @@ git ::File.join(node[:nginx][:content_dir], "shapado") do
   action :sync
 end
 
+# TODO: WHere we're just copying the sample shapado file, we should create our own
 bash "Install gems & bootstrap shapado" do
   cwd ::File.join(node[:nginx][:content_dir], "shapado")
   code <<-EOF
+cp config/shapado.sample.yml config/shapado.yml
+cp config/database.yml.sample config/database.yml
 rake gems:install
 rake asset:packager:build_all
 script/update_geoip
