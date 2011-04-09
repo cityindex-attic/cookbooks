@@ -1,0 +1,41 @@
+upstream unicorn {
+  server unix:/var/run/unicorn/shapado.sock fail_timeout=0;
+}
+
+<% if @params[:aliases] -%>
+server {
+  listen 80;
+  server_name <% @params[:aliases].each do |a| -%><%= " #{a}" %><% end -%>;
+
+  # Canonical host, <%= @params[:fqdn] %>
+  # The "right" Nginx way - http://wiki.nginx.org/Pitfalls#Taxing_Rewrites
+  rewrite ^ http://<%= @params[:fqdn] %>$request_uri? permanent;
+}
+<% end -%>
+
+server {
+  listen 80;
+  server_name <%= @params[:fqdn] %>;
+
+  client_max_body_size 4G;
+  keepalive_timeout 5;
+
+  root <%= @params[:shapado_path] %>/public;
+
+  location ~* \.(js|css|png|jpg|jpeg|gif|ico)\?[0-9]+$ {
+    expires max;
+    log_not_found off;
+  }
+
+  location / {
+    proxy_set_header X-Forwarded_for $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+
+    try_files $uri $uri/ @rainbows
+  }
+
+  location @rainbows {
+    proxy_pass http://unicorn
+  }
+}
