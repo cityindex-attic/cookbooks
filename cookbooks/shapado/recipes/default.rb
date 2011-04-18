@@ -66,6 +66,8 @@ end
 unicorn_app "shapado" do
   app_name "shapado"
   app_path shapado_install_dir
+  cookbook "shapado"
+  template "unicorn.rb.erb"
 end
 
 nginx_enable_vhost node[:shapado][:fqdn] do
