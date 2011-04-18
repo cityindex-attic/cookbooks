@@ -20,7 +20,14 @@ server {
   client_max_body_size 4G;
   keepalive_timeout 5;
 
-  root <%= @params[:shapado_path] %>/public;
+  access_log <%= node[:nginx][:log_dir] %>/<%= @params[:fqdn] %>-access.log;
+  error_log <%= node[:nginx][:log_dir] %>/<%= @params[:fqdn] %>-error.log;
+
+  root <%= @params[:shapado_path] %>/public/;
+
+  error_page 503 /system/maintenance.html;
+  if (-f $document_root/system/maintenance.html$nocycle) { set $nocycle 1; return 503; }
+  location = /system/maintenance.html { }
 
   location ~* \.(js|css|png|jpg|jpeg|gif|ico)\?[0-9]+$ {
     expires max;
@@ -32,10 +39,6 @@ server {
     proxy_set_header Host $http_host;
     proxy_redirect off;
 
-    try_files $uri $uri/ @rainbows
-  }
-
-  location @rainbows {
-    proxy_pass http://unicorn
+    proxy_pass http://unicorn;
   }
 }
