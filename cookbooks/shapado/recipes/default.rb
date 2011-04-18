@@ -51,7 +51,7 @@ end
 # TODO: Lots of good configuration bits like enabling social networking and google analytics
 template ::File.join(shapado_install_dir, "config", "shapado.yml") do
   source "shapado.yml.erb"
-  variables (:uri => node[:shapado][:fqdn])
+  variables(:uri => node[:shapado][:fqdn])
 end
 
 unicorn_app "shapado" do
