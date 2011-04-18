@@ -15,6 +15,15 @@ include_recipe "ruby_enterprise::default"
 include_recipe "rails::install"
 include_recipe "unicorn::enterprise"
 
+# TODO: This mechanism for getting the arch is reused in my code a lot, need to either set a node attribute once
+# somewhere, or otherwise encapsulate this, maybe ohai?
+uname_machine = `uname -m`.strip
+
+machines = {"x86_64" => "amd64", "i386" => "i386", "i686" => "i386"}
+arch = machines[uname_machine]
+
+Chef::Log.info "Detected system architecture of #{uname_machine} installing the #{arch} RVM gemset for Shapado..."
+
 # Required for the "magic" gem
 package "file"
 
