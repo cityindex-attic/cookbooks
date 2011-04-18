@@ -35,7 +35,7 @@ git shapado_install_dir do
 end
 
 # TODO: This is a total hack, and this should become a distro package at some point
-ree_global_gemset_path = ::File.join(node[:rvm][:install_path], "gems", "ree-#{node[:ruby_enterprise][:version]}@global")
+ree_global_gemset_path = ::File.join(node[:rvm][:install_path], "gems", "ree-#{node[:ruby_enterprise][:version]}")
 
 remote_file "/tmp/gemset.tar.gz" do
   source "gemset-#{arch}.tar.gz"
