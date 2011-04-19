@@ -40,7 +40,7 @@ end
 ree_global_gemset_path = ::File.join(node[:rvm][:install_path], "gems", "ree-#{node[:ruby_enterprise][:version]}")
 
 remote_file "/tmp/gemset.tar.gz" do
-  source "gemset-#{arch}.tar.gz"
+  source "gemset-shapado-#{node[:shapado][:version]}-#{arch}.tar.gz"
 end
 
 bash "Extract gemset to ree global gemset" do
