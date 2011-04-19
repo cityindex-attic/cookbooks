@@ -8,7 +8,7 @@
 #  This product includes software developed at
 #    CityIndex Ltd. (http://www.cityindex.com)
 
-node[:rails][:version] = "2.3.10"
+node[:rails][:version] = "2.3.11"
 
 include_recipe "nginx::default"
 include_recipe "ruby_enterprise::rvm_packaged"
