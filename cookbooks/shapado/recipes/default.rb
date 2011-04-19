@@ -11,7 +11,7 @@
 node[:rails][:version] = "2.3.10"
 
 include_recipe "nginx::default"
-include_recipe "ruby_enterprise::default"
+include_recipe "ruby_enterprise::rvm_packaged"
 include_recipe "rails::install"
 include_recipe "unicorn::enterprise"
 
