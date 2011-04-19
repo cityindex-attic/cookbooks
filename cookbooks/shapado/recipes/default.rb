@@ -48,7 +48,7 @@ bash "Extract gemset to ree global gemset" do
 end
 
 # In v3.10.6 & HEAD this css file is not generated properly, maybe we can remove this one day?
-remote_file ::File.join(shapado_install_dir, "public", "css", "base_packaged.css") do
+remote_file ::File.join(shapado_install_dir, "public", "stylesheets", "base_packaged.css") do
   source "base_packaged.css"
 end
 
