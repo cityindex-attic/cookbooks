@@ -29,8 +29,10 @@ package "file"
 
 shapado_install_dir = ::File.join(node[:nginx][:content_dir], "shapado")
 
+# TODO: Need to grab a specific branch/tag
 git shapado_install_dir do
   repository "git://gitorious.org/shapado/shapado.git"
+  revision node[:shapado][:version]
   action :sync
 end
 
@@ -56,6 +58,8 @@ touch cheffed
   EOF
   creates ::File.join(node[:nginx][:content_dir], "shapado", "cheffed")
 end
+
+# TODO: Add the base_packaged.css file since it doesn't seem to be built properly
 
 # TODO: Lots of good configuration bits like enabling social networking and google analytics
 template ::File.join(shapado_install_dir, "config", "shapado.yml") do
