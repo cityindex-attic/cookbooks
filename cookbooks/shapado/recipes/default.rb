@@ -47,24 +47,27 @@ bash "Extract gemset to ree global gemset" do
   code "tar -zxf /tmp/gemset.tar.gz -C #{ree_global_gemset_path}"
 end
 
-bash "Install gems & bootstrap shapado" do
-  cwd ::File.join(node[:nginx][:content_dir], "shapado")
-  code <<-EOF
-cp config/database.yml.sample config/database.yml
-rake asset:packager:build_all
-script/update_geoip
-rake bootstrap RAILS_ENV=#{node[:rails][:environment]}
-touch cheffed
-  EOF
-  creates ::File.join(node[:nginx][:content_dir], "shapado", "cheffed")
+# In v3.10.6 & HEAD this css file is not generated properly, maybe we can remove this one day?
+remote_file ::File.join(shapado_install_dir, "public", "css", "base_packaged.css") do
+  source "base_packaged.css"
 end
-
-# TODO: Add the base_packaged.css file since it doesn't seem to be built properly
 
 # TODO: Lots of good configuration bits like enabling social networking and google analytics
 template ::File.join(shapado_install_dir, "config", "shapado.yml") do
   source "shapado.yml.erb"
   variables(:uri => node[:shapado][:fqdn])
+end
+
+bash "Install gems & bootstrap shapado" do
+  cwd ::File.join(node[:nginx][:content_dir], "shapado")
+  code <<-EOF
+cp config/database.yml.sample config/database.yml
+RAILS_GEM_VERSION=#{node[:rails][:version]} rake asset:packager:build_all
+script/update_geoip
+RAILS_ENV=#{node[:rails][:environment]} RAILS_GEM_VERSION=#{node[:rails][:version]} rake bootstrap
+touch cheffed
+  EOF
+  creates ::File.join(node[:nginx][:content_dir], "shapado", "cheffed")
 end
 
 unicorn_app "shapado" do
