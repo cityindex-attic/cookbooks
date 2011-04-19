@@ -11,9 +11,8 @@
 node[:rails][:version] = "2.3.11"
 
 include_recipe "nginx::default"
-include_recipe "ruby_enterprise::rvm_packaged"
 include_recipe "rails::install"
-include_recipe "unicorn::enterprise"
+include_recipe "unicorn::default"
 
 # TODO: This mechanism for getting the arch is reused in my code a lot, need to either set a node attribute once
 # somewhere, or otherwise encapsulate this, maybe ohai?
