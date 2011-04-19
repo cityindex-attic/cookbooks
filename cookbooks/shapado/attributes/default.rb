@@ -1,1 +1,1 @@
-default[:shapado][:version] = "3.10.6"
+default[:shapado][:version] = "v3.10.6"
