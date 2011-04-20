@@ -16,12 +16,14 @@ dcu-devise -v1.0.7 --no-rdoc --no-ri --ignore-dependencies
 differ -v0.1.1 --no-rdoc --no-ri --ignore-dependencies
 erubis -v2.6.6 --no-rdoc --no-ri --ignore-dependencies
 fancy-buttons -v0.5.5 --no-rdoc --no-ri --ignore-dependencies
-faraday -v0.4.6 --no-rdoc --no-ri --ignore-dependencies
+faraday -v0.6.1 --no-rdoc --no-ri --ignore-dependencies
+ffi -v1.0.7 --no-rdoc --no-ri --ignore-dependencies
 geoip -v1.0.0 --no-rdoc --no-ri --ignore-dependencies
 haml -v3.0.25 --no-rdoc --no-ri --ignore-dependencies
 i18n -v0.5.0 --no-rdoc --no-ri --ignore-dependencies
 jnunemaker-validatable -v1.8.4 --no-rdoc --no-ri --ignore-dependencies
 json -v1.5.1 --no-rdoc --no-ri --ignore-dependencies
+kgio -v2.3.3 --no-rdoc --no-ri --ignore-dependencies
 magent -v0.4.2 --no-rdoc --no-ri --ignore-dependencies
 magic -v0.2.6 --no-rdoc --no-ri --ignore-dependencies
 mail -v2.2.17 --no-rdoc --no-ri --ignore-dependencies
@@ -29,6 +31,7 @@ mime-types -v1.16 --no-rdoc --no-ri --ignore-dependencies
 mongo -v1.0.9 --no-rdoc --no-ri --ignore-dependencies
 mongo_mapper -v0.8.3 --no-rdoc --no-ri --ignore-dependencies
 mongomapper_ext -v0.5.0 --no-rdoc --no-ri --ignore-dependencies
+multipart-post -v1.1.0 --no-rdoc --no-ri --ignore-dependencies
 nokogiri -v1.4.4 --no-rdoc --no-ri --ignore-dependencies
 oauth -v0.4.4 --no-rdoc --no-ri --ignore-dependencies
 oauth2 -v0.0.8 --no-rdoc --no-ri --ignore-dependencies
@@ -39,6 +42,7 @@ rack-mount -v0.6.14 --no-rdoc --no-ri --ignore-dependencies
 rack-recaptcha -v0.2.2 --no-rdoc --no-ri --ignore-dependencies
 rack-test -v0.5.7 --no-rdoc --no-ri --ignore-dependencies
 rails -v2.3.11 --no-rdoc --no-ri --ignore-dependencies
+rake -v0.8.7 --no-rdoc --no-ri --ignore-dependencies
 rdiscount -v1.6.5 --no-rdoc --no-ri --ignore-dependencies
 ruby-openid -v2.1.8 --no-rdoc --no-ri --ignore-dependencies
 ruby-stemmer -v0.9.1 --no-rdoc --no-ri --ignore-dependencies
@@ -48,6 +52,7 @@ treetop -v1.4.9 --no-rdoc --no-ri --ignore-dependencies
 twitter-text -v1.1.1 --no-rdoc --no-ri --ignore-dependencies
 twitter_oauth -v0.4.3 --no-rdoc --no-ri --ignore-dependencies
 tzinfo -v0.3.26 --no-rdoc --no-ri --ignore-dependencies
+unicorn -v3.5.0 --no-rdoc --no-ri --ignore-dependencies
 uuidtools -v2.1.1 --no-rdoc --no-ri --ignore-dependencies
 warden -v0.10.7 --no-rdoc --no-ri --ignore-dependencies
 whatlanguage -v1.0.0 --no-rdoc --no-ri --ignore-dependencies
