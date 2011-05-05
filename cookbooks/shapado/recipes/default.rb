@@ -64,6 +64,8 @@ cp config/database.yml.sample config/database.yml
 RAILS_GEM_VERSION=#{node[:rails][:version]} rake asset:packager:build_all
 script/update_geoip
 RAILS_ENV=#{node[:rails][:environment]} RAILS_GEM_VERSION=#{node[:rails][:version]} rake bootstrap
+# Ignore errors/warnings from rake bootstrap, cause it complains a lot
+exit 0
   EOF
 end
 
