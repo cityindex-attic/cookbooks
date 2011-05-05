@@ -64,9 +64,7 @@ cp config/database.yml.sample config/database.yml
 RAILS_GEM_VERSION=#{node[:rails][:version]} rake asset:packager:build_all
 script/update_geoip
 RAILS_ENV=#{node[:rails][:environment]} RAILS_GEM_VERSION=#{node[:rails][:version]} rake bootstrap
-touch cheffed
   EOF
-  creates ::File.join(node[:nginx][:content_dir], "shapado", "cheffed")
 end
 
 unicorn_app "shapado" do
