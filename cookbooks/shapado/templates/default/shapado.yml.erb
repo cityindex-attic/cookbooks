@@ -38,9 +38,9 @@ base: &common
     secret: twitter secret key
 
   recaptcha:
-    activate: true
-    public_key: your public key
-    private_key: your private key
+    activate: <%= node[:shapado][:recaptcha_enable] %>
+    public_key: <%= node[:shapado][:recaptcha_public_key] %>
+    private_key: <%= node[:shapado][:recaptcha_private_key] %>
 
   exception_notification:
     activate: true

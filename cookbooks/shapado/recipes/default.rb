@@ -14,6 +14,10 @@ include_recipe "nginx::default"
 include_recipe "rails::install"
 include_recipe "unicorn::default"
 
+if(node[:shapado][:recaptcha_enable] && (!node[:shapado][:recaptcha_public_key] || node[:shapado][:recaptcha_private_key]))
+  raise "Recaptcha support for shapado was enabled, but the public or private API key was empty"
+end
+
 # TODO: This mechanism for getting the arch is reused in my code a lot, need to either set a node attribute once
 # somewhere, or otherwise encapsulate this, maybe ohai?
 uname_machine = `uname -m`.strip

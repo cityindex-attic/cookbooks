@@ -21,6 +21,20 @@ attribute "shapado/aliases",
   :default => "",
   :recipes => ["shapado::default"]
 
+attribute "shapado/recaptcha_enable",
+  :display_name => "Shapado Enable Recaptcha",
+  :description => "A boolean indicating of recaptcha support should be used.  If true, shapado/recaptcha_public_key and shapado/recaptcha_private_key must be set",
+  :default => "false",
+  :recipes => ["shapado::default"]
+
+attribute "shapado/recaptcha_public_key",
+  :display_name => "Shapado Recaptcha Public Key",
+  :recipes => ["shapado::default"]
+
+attribute "shapado/recaptcha_private_key",
+  :display_name => "Shapado Recaptcha Private Key",
+  :recipes => ["shapado::default"]
+
 attribute "rails/version",
   :display_name => "Rails Version",
   :description => "The full version number of rails to install.  I.E. 3.0.5  If no value is provided, the latest available version is installed.",

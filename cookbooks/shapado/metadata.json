@@ -110,6 +110,20 @@
       "description": "User nginx will run as",
       "display_name": "Nginx User"
     },
+    "shapado/recaptcha_enable": {
+      "required": "optional",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "default": "false",
+      "type": "string",
+      "recipes": [
+        "shapado::default"
+      ],
+      "description": "A boolean indicating of recaptcha support should be used.  If true, shapado/recaptcha_public_key and shapado/recaptcha_private_key must be set",
+      "display_name": "Shapado Enable Recaptcha"
+    },
     "nginx/keepalive_timeout": {
       "required": "optional",
       "calculated": false,
@@ -122,6 +136,18 @@
         "shapado::default"
       ],
       "display_name": "Nginx Keepalive Timeout"
+    },
+    "shapado/recaptcha_public_key": {
+      "required": "optional",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "type": "string",
+      "recipes": [
+        "shapado::default"
+      ],
+      "display_name": "Shapado Recaptcha Public Key"
     },
     "nginx/gzip_proxied": {
       "required": "optional",
@@ -233,6 +259,18 @@
       ],
       "description": "Version of HTTP Gzip",
       "display_name": "Nginx Gzip HTTP Version"
+    },
+    "shapado/recaptcha_private_key": {
+      "required": "optional",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "type": "string",
+      "recipes": [
+        "shapado::default"
+      ],
+      "display_name": "Shapado Recaptcha Private Key"
     },
     "nginx/log_dir": {
       "required": "optional",
