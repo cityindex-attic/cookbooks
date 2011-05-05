@@ -78,7 +78,13 @@ fi
 cp config/database.yml.sample config/database.yml
 RAILS_GEM_VERSION=#{node[:rails][:version]} rake asset:packager:build_all
 script/update_geoip
-RAILS_ENV=#{node[:rails][:environment]} RAILS_GEM_VERSION=#{node[:rails][:version]} rake bootstrap
+if [ ! -f 'bootstrapped' ] ; then
+  echo "Bootstrapping shapado one time"
+  RAILS_ENV=#{node[:rails][:environment]} RAILS_GEM_VERSION=#{node[:rails][:version]} rake bootstrap
+  touch bootstrapped
+else
+  echo "Shapado has already been boostrapped, skipping the bootstrap command"
+fi
 # Ignore errors/warnings from rake bootstrap, cause it complains a lot
 exit 0
   EOF
