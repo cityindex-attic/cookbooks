@@ -129,3 +129,11 @@ attribute "nginx/aliases",
   :default => [],
   :required => "recommended",
   :recipes => ["shapado::default"]
+
+# HAX
+attribute "rvm/install_path",
+  :display_name => "RVM Installation Path",
+  :description => "The full path where RVM will be installed. I.E. /opt/rvm",
+  :required => "optional",
+  :default => "/opt/rvm",
+  :recipes => ["shapado::default"]
