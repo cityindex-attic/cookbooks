@@ -19,6 +19,8 @@
 # limitations under the License.
 #
 
+node[:mongodb][:dir] = "/usr"
+
 execute "apt-get update" do
   action :nothing
 end
@@ -37,3 +39,7 @@ template "/etc/apt/sources.list.d/mongodb.list" do
 end
 
 package "mongodb-stable"
+
+bash "Killing the running upstart job for mongodb" do
+  code "service mongodb stop"
+end

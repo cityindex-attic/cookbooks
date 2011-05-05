@@ -167,7 +167,7 @@
       "choice": [
 
       ],
-      "default": "/etc/mongo.conf",
+      "default": "/etc/mongodb.conf",
       "type": "string",
       "recipes": [
 

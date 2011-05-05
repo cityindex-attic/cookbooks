@@ -57,7 +57,7 @@ attribute "mongodb/datadir",
 attribute "mongodb/config",
   :display_name => "MongoDB config",
   :description => "Path to MongoDB config file",
-  :default => "/etc/mongo.conf"
+  :default => "/etc/mongodb.conf"
 
 attribute "mongodb/logfile",
   :display_name => "MongoDB log file",
