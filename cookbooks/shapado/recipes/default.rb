@@ -46,11 +46,6 @@ bash "Extract gemset to ree global gemset" do
   code "tar -zxf /tmp/gemset.tar.gz -C #{ree_global_gemset_path}"
 end
 
-# In v3.10.6 & HEAD this css file is not generated properly, maybe we can remove this one day?
-remote_file ::File.join(shapado_install_dir, "public", "stylesheets", "base_packaged.css") do
-  source "base_packaged.css"
-end
-
 # TODO: Lots of good configuration bits like enabling social networking and google analytics
 template ::File.join(shapado_install_dir, "config", "shapado.yml") do
   source "shapado.yml.erb"
@@ -83,6 +78,11 @@ RAILS_ENV=#{node[:rails][:environment]} RAILS_GEM_VERSION=#{node[:rails][:versio
 # Ignore errors/warnings from rake bootstrap, cause it complains a lot
 exit 0
   EOF
+end
+
+# In v3.10.6 & HEAD this css file is not generated properly, maybe we can remove this one day?
+remote_file ::File.join(shapado_install_dir, "public", "stylesheets", "base_packaged.css") do
+  source "base_packaged.css"
 end
 
 unicorn_app "shapado" do
