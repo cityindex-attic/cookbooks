@@ -28,11 +28,11 @@ package "file"
 
 shapado_install_dir = ::File.join(node[:nginx][:content_dir], "shapado")
 
-# TODO: Need to grab a specific branch/tag
 git shapado_install_dir do
   repository "git://gitorious.org/shapado/shapado.git"
   revision node[:shapado][:version]
   action :sync
+  not_if { ::File.directory?(shapado_install_dir) }
 end
 
 # TODO: This is a total hack, and this should become a distro package at some point
