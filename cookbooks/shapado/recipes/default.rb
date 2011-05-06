@@ -108,4 +108,5 @@ nginx_enable_vhost node[:shapado][:fqdn] do
   fqdn node[:shapado][:fqdn]
   aliases node[:shapado][:aliases]
   shapado_path shapado_install_dir
+  create_doc_root false
 end
