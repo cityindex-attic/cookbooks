@@ -9,6 +9,7 @@
     "mongodb": "Default recipe simply includes the mongodb::source and mongodb::server recipes",
     "mongodb::source": "Installs MongoDB from source and includes init.d script",
     "mongodb::server": "Set up config and initialization to run mongod as a database server",
+    "mongodb::safe_stop": "Safely stops mongodb for reboots etc.  Intended to be put in the decomission phase of a RightScale server template.",
     "mongodb::config_server": "Sets up config and initialization to run mongod as a config server for sharding",
     "mongodb::mongos": "Sets up config and initialization to run mongos, the MongoDB sharding router",
     "mongodb::apt": "Installs MongoDB from 10Gen's apt source and includes init.d script"

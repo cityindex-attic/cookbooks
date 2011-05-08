@@ -11,6 +11,7 @@ recipe "mongodb::config_server", "Sets up config and initialization to run mongo
 recipe "mongodb::mongos", "Sets up config and initialization to run mongos, the MongoDB sharding router"
 recipe "mongodb::server", "Set up config and initialization to run mongod as a database server"
 recipe "mongodb::source", "Installs MongoDB from source and includes init.d script"
+recipe "mongodb::safe_stop", "Safely stops mongodb for reboots etc.  Intended to be put in the decomission phase of a RightScale server template."
 
 %w{ ubuntu debian }.each do |os|
   supports os
