@@ -1,61 +1,60 @@
 # default.gems generated gem export file. Note that any env variable settings will be missing. Append these after using a ';' field separator
-abstract -v1.0.0
-actionmailer -v2.3.11
-actionpack -v2.3.11
-activerecord -v2.3.11
-activeresource -v2.3.11
-activesupport -v2.3.11
-addressable -v2.2.5
-bson -v1.1.4
-bson_ext -v1.1.4
-builder -v2.1.2
-chunky_png -v1.2.0
-compass -v0.10.5
-compass-colors -v0.3.1
-dcu-devise -v1.0.7
-differ -v0.1.1
-erubis -v2.6.6
-fancy-buttons -v0.5.5
-faraday -v0.6.1
-ffi -v1.0.7
-fssm -v0.2.7
-geoip -v1.1.1
-haml -v3.0.25
-i18n -v0.5.0
-jnunemaker-validatable -v1.8.4
-json -v1.5.1
-kgio -v2.4.0
-magent -v0.4.2
-magic -v0.2.6
-mail -v2.2.19
-mime-types -v1.16
-mongo -v1.1.4
-mongo_mapper -v0.8.6
-mongomapper_ext -v0.5.0
-multipart-post -v1.1.0
-nokogiri -v1.4.4
-oauth -v0.4.4
-oauth2 -v0.0.8
-plucky -v0.3.6
-polyglot -v0.3.1
-rack -v1.1.2
-rack-mount -v0.6.14
-rack-recaptcha -v0.2.2
-rack-test -v0.5.7
-rails -v2.3.11
-rake -v0.8.7
-rdiscount -v1.6.5
-ruby-openid -v2.1.8
-ruby-stemmer -v0.9.1
-sanitize -v1.2.1
-sass -v3.1.1
-super_exception_notifier -v2.0.8
-treetop -v1.4.9
-twitter-text -v1.1.1
-twitter_oauth -v0.4.3
-tzinfo -v0.3.27
-unicorn -v3.5.0
-uuidtools -v2.1.2
-warden -v1.0.4
-warden -v0.10.7
-whatlanguage -v1.0.0
+abstract -v1.0.0 --no-rdoc --no-ri --ignore-dependencies
+actionmailer -v2.3.11 --no-rdoc --no-ri --ignore-dependencies
+actionpack -v2.3.11 --no-rdoc --no-ri --ignore-dependencies
+activerecord -v2.3.11 --no-rdoc --no-ri --ignore-dependencies
+activeresource -v2.3.11 --no-rdoc --no-ri --ignore-dependencies
+activesupport -v2.3.11 --no-rdoc --no-ri --ignore-dependencies
+addressable -v2.2.5 --no-rdoc --no-ri --ignore-dependencies
+bson -v1.1.4 --no-rdoc --no-ri --ignore-dependencies
+bson_ext -v1.1.4 --no-rdoc --no-ri --ignore-dependencies
+chunky_png -v1.2.0 --no-rdoc --no-ri --ignore-dependencies
+compass -v0.10.5 --no-rdoc --no-ri --ignore-dependencies
+compass-colors -v0.3.1 --no-rdoc --no-ri --ignore-dependencies
+dcu-devise -v1.0.7 --no-rdoc --no-ri --ignore-dependencies
+differ -v0.1.1 --no-rdoc --no-ri --ignore-dependencies
+erubis -v2.6.6 --no-rdoc --no-ri --ignore-dependencies
+fancy-buttons -v0.5.5 --no-rdoc --no-ri --ignore-dependencies
+faraday -v0.6.1 --no-rdoc --no-ri --ignore-dependencies
+ffi -v1.0.7 --no-rdoc --no-ri --ignore-dependencies
+fssm -v0.2.7 --no-rdoc --no-ri --ignore-dependencies
+geoip -v1.1.1 --no-rdoc --no-ri --ignore-dependencies
+haml -v3.0.25 --no-rdoc --no-ri --ignore-dependencies
+i18n -v0.5.0 --no-rdoc --no-ri --ignore-dependencies
+jnunemaker-validatable -v1.8.4 --no-rdoc --no-ri --ignore-dependencies
+json -v1.5.1 --no-rdoc --no-ri --ignore-dependencies
+kgio -v2.4.0 --no-rdoc --no-ri --ignore-dependencies
+magent -v0.4.2 --no-rdoc --no-ri --ignore-dependencies
+magic -v0.2.6 --no-rdoc --no-ri --ignore-dependencies
+mail -v2.2.19 --no-rdoc --no-ri --ignore-dependencies
+mime-types -v1.16 --no-rdoc --no-ri --ignore-dependencies
+mongo -v1.1.4 --no-rdoc --no-ri --ignore-dependencies
+mongo_mapper -v0.8.6 --no-rdoc --no-ri --ignore-dependencies
+mongomapper_ext -v0.5.0 --no-rdoc --no-ri --ignore-dependencies
+multipart-post -v1.1.0 --no-rdoc --no-ri --ignore-dependencies
+nokogiri -v1.4.4 --no-rdoc --no-ri --ignore-dependencies
+oauth -v0.4.4 --no-rdoc --no-ri --ignore-dependencies
+oauth2 -v0.0.8 --no-rdoc --no-ri --ignore-dependencies
+plucky -v0.3.6 --no-rdoc --no-ri --ignore-dependencies
+polyglot -v0.3.1 --no-rdoc --no-ri --ignore-dependencies
+rack -v1.1.2 --no-rdoc --no-ri --ignore-dependencies
+rack-mount -v0.6.14 --no-rdoc --no-ri --ignore-dependencies
+rack-recaptcha -v0.2.2 --no-rdoc --no-ri --ignore-dependencies
+rack-test -v0.5.7 --no-rdoc --no-ri --ignore-dependencies
+rails -v2.3.11 --no-rdoc --no-ri --ignore-dependencies
+rake -v0.8.7 --no-rdoc --no-ri --ignore-dependencies
+rdiscount -v1.6.5 --no-rdoc --no-ri --ignore-dependencies
+ruby-openid -v2.1.8 --no-rdoc --no-ri --ignore-dependencies
+ruby-stemmer -v0.9.1 --no-rdoc --no-ri --ignore-dependencies
+sanitize -v1.2.1 --no-rdoc --no-ri --ignore-dependencies
+sass -v3.1.1 --no-rdoc --no-ri --ignore-dependencies
+super_exception_notifier -v2.0.8 --no-rdoc --no-ri --ignore-dependencies
+treetop -v1.4.9 --no-rdoc --no-ri --ignore-dependencies
+twitter-text -v1.1.1 --no-rdoc --no-ri --ignore-dependencies
+twitter_oauth -v0.4.3 --no-rdoc --no-ri --ignore-dependencies
+tzinfo -v0.3.27 --no-rdoc --no-ri --ignore-dependencies
+unicorn -v3.5.0 --no-rdoc --no-ri --ignore-dependencies
+uuidtools -v2.1.2 --no-rdoc --no-ri --ignore-dependencies
+warden -v1.0.4 --no-rdoc --no-ri --ignore-dependencies
+warden -v0.10.7 --no-rdoc --no-ri --ignore-dependencies
+whatlanguage -v1.0.0 --no-rdoc --no-ri --ignore-dependencies
