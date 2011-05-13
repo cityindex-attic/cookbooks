@@ -1,2 +1,2 @@
-default[:shapado][:version] = "v3.10.6"
+default[:shapado][:version] = "master"
 default[:shapado][:recaptcha_enable] = false

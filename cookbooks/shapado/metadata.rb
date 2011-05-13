@@ -35,6 +35,13 @@ attribute "shapado/recaptcha_private_key",
   :display_name => "Shapado Recaptcha Private Key",
   :recipes => ["shapado::default"]
 
+attribute "shapado/version",
+  :display_name => "Shapado Version",
+  :description => "The version/branch/tag/commit of the gitorious repo to use",
+  :required => "optional",
+  :default => "master",
+  :recipes => ["shapado::default"]
+
 attribute "rails/version",
   :display_name => "Rails Version",
   :description => "The full version number of rails to install.  I.E. 3.0.5  If no value is provided, the latest available version is installed.",

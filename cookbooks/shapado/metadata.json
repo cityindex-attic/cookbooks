@@ -327,6 +327,20 @@
       "description": "Whether gzip is enabled",
       "display_name": "Nginx Gzip"
     },
+    "shapado/version": {
+      "required": "optional",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "default": "master",
+      "type": "string",
+      "recipes": [
+        "shapado::default"
+      ],
+      "description": "The version/branch/tag/commit of the gitorious repo to use",
+      "display_name": "Shapado Version"
+    },
     "shapado/fqdn": {
       "required": "required",
       "calculated": false,
