@@ -53,7 +53,6 @@ twitter-text -v1.1.1 --no-rdoc --no-ri --ignore-dependencies
 twitter_oauth -v0.4.3 --no-rdoc --no-ri --ignore-dependencies
 tzinfo -v0.3.27 --no-rdoc --no-ri --ignore-dependencies
 uuidtools -v2.1.2 --no-rdoc --no-ri --ignore-dependencies
-warden -v1.0.4 --no-rdoc --no-ri --ignore-dependencies
 warden -v0.10.7 --no-rdoc --no-ri --ignore-dependencies
 whatlanguage -v1.0.0 --no-rdoc --no-ri --ignore-dependencies
 ffi -v1.0.7 --no-rdoc --no-ri --ignore-dependencies
