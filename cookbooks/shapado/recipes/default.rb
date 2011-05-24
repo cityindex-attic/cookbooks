@@ -51,10 +51,6 @@ end
 bash "Install gems & bootstrap shapado" do
   cwd ::File.join(node[:nginx][:content_dir], "shapado")
   code <<-EOF
-
-# Unicorn installs a newer version which we don't like
-gem uninstall warden
-
 rvm gemset import #{gemset_filepath}
 
 cp config/database.yml.sample config/database.yml
