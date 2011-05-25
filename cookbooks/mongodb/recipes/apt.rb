@@ -42,4 +42,5 @@ package "mongodb-stable"
 
 bash "Killing the running upstart job for mongodb" do
   code "service mongodb stop"
+  not_if "service mongodb status | grep stop"
 end
