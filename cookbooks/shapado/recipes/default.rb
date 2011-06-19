@@ -51,7 +51,9 @@ end
 bash "Install gems & bootstrap shapado" do
   cwd ::File.join(node[:nginx][:content_dir], "shapado")
   code <<-EOF
-rvm gemset import #{gemset_filepath}
+#rvm gemset import #{gemset_filepath}
+
+rake gems:install
 
 cp config/database.yml.sample config/database.yml
 RAILS_GEM_VERSION=#{node[:rails][:version]} rake asset:packager:build_all
@@ -71,6 +73,7 @@ end
 # In v3.10.6 & HEAD this css file is not generated properly, maybe we can remove this one day?
 remote_file ::File.join(shapado_install_dir, "public", "stylesheets", "base_packaged.css") do
   source "base_packaged.css"
+  backup false
 end
 
 unicorn_app "shapado" do
