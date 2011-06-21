@@ -6,8 +6,8 @@ activerecord -v2.3.11 --no-rdoc --no-ri --ignore-dependencies
 activeresource -v2.3.11 --no-rdoc --no-ri --ignore-dependencies
 activesupport -v2.3.11 --no-rdoc --no-ri --ignore-dependencies
 addressable -v2.2.5 --no-rdoc --no-ri --ignore-dependencies
-bson -v1.1.4 --no-rdoc --no-ri --ignore-dependencies
-bson_ext -v1.1.4 --no-rdoc --no-ri --ignore-dependencies
+bson -v1.0.9 --no-rdoc --no-ri --ignore-dependencies
+bson_ext -v1.0.9 --no-rdoc --no-ri --ignore-dependencies
 chunky_png -v1.2.0 --no-rdoc --no-ri --ignore-dependencies
 compass -v0.10.5 --no-rdoc --no-ri --ignore-dependencies
 compass-colors -v0.3.1 --no-rdoc --no-ri --ignore-dependencies
@@ -27,14 +27,14 @@ magent -v0.4.2 --no-rdoc --no-ri --ignore-dependencies
 magic -v0.2.6 --no-rdoc --no-ri --ignore-dependencies
 mail -v2.2.19 --no-rdoc --no-ri --ignore-dependencies
 mime-types -v1.16 --no-rdoc --no-ri --ignore-dependencies
-mongo -v1.1.4 --no-rdoc --no-ri --ignore-dependencies
-mongo_mapper -v0.8.6 --no-rdoc --no-ri --ignore-dependencies
+mongo -v1.0.9 --no-rdoc --no-ri --ignore-dependencies
+mongo_mapper -v0.8.3 --no-rdoc --no-ri --ignore-dependencies
 mongomapper_ext -v0.5.0 --no-rdoc --no-ri --ignore-dependencies
 multipart-post -v1.1.0 --no-rdoc --no-ri --ignore-dependencies
 nokogiri -v1.4.4 --no-rdoc --no-ri --ignore-dependencies
 oauth -v0.4.4 --no-rdoc --no-ri --ignore-dependencies
 oauth2 -v0.0.8 --no-rdoc --no-ri --ignore-dependencies
-plucky -v0.3.6 --no-rdoc --no-ri --ignore-dependencies
+plucky -v0.3.5 --no-rdoc --no-ri --ignore-dependencies
 polyglot -v0.3.1 --no-rdoc --no-ri --ignore-dependencies
 rack -v1.1.2 --no-rdoc --no-ri --ignore-dependencies
 rack-mount -v0.6.14 --no-rdoc --no-ri --ignore-dependencies
@@ -52,7 +52,7 @@ treetop -v1.4.9 --no-rdoc --no-ri --ignore-dependencies
 twitter-text -v1.1.1 --no-rdoc --no-ri --ignore-dependencies
 twitter_oauth -v0.4.3 --no-rdoc --no-ri --ignore-dependencies
 tzinfo -v0.3.27 --no-rdoc --no-ri --ignore-dependencies
-uuidtools -v2.1.2 --no-rdoc --no-ri --ignore-dependencies
+uuidtools -v2.1.1 --no-rdoc --no-ri --ignore-dependencies
 warden -v0.10.7 --no-rdoc --no-ri --ignore-dependencies
 whatlanguage -v1.0.0 --no-rdoc --no-ri --ignore-dependencies
 ffi -v1.0.7 --no-rdoc --no-ri --ignore-dependencies
