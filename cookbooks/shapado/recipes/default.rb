@@ -51,9 +51,9 @@ end
 bash "Install gems & bootstrap shapado" do
   cwd ::File.join(node[:nginx][:content_dir], "shapado")
   code <<-EOF
-#rvm gemset import #{gemset_filepath}
+rvm gemset import #{gemset_filepath}
 
-rake gems:install
+#rake gems:install
 
 cp config/database.yml.sample config/database.yml
 RAILS_GEM_VERSION=#{node[:rails][:version]} rake asset:packager:build_all
