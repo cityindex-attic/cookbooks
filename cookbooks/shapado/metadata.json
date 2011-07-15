@@ -12,7 +12,7 @@
   },
   "maintainer_email": "me@ryangeyer.com",
   "description": "Installs/Configures shapado",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "groupings": {
   },
   "attributes": {
