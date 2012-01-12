@@ -1,0 +1,13 @@
+--- app/mustache/answer_wrapper.rb      2012-01-12 18:57:56.000000000 +0000
++++ app/mustache/answer_wrapper.rb      2012-01-12 18:59:05.000000000 +0000
+@@ -70,7 +70,9 @@
+   def pick_as_solution_url
+     unless question.accepted && !question.subjetive
+       view_context.link_to(I18n.t("questions.answer.pick_answer"), view_context.solve_question_path(question, :answer_id => @target))
+-    elsif question.answer == answer
++    end
++
++    if question.answer == answer
+       view_context.link_to(I18n.t("questions.answer.unset_answer"), view_context.unsolve_question_path(question, :answer_id => @target))
+     end
+   end
