@@ -28,7 +28,7 @@ node[:rvm][:install_path] = "/opt/rvm"
 node[:unicorn][:version] = "4.1.1"
 
 include_recipe "rvm::default"
-include_recipe "nginx::default"
+include_recipe "nginx::install_from_package"
 include_recipe "unicorn::setup_unicorn"
 
 shapado_install_dir = ::File.join(node[:nginx][:content_dir], "shapado")
