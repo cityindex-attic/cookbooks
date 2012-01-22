@@ -269,6 +269,20 @@
       "display_name": "Nginx Gzip HTTP Version",
       "description": "Version of HTTP Gzip"
     },
+    "shapado/repository": {
+      "required": "required",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "default": "git://github.com/cityindex/shapado.git",
+      "type": "string",
+      "recipes": [
+        "shapado::install_shapado"
+      ],
+      "display_name": "Shapado Git Repository",
+      "description": "The shapado git repository from which to fetch the shapado application code"
+    },
     "shapado/recaptcha_private_key": {
       "required": "optional",
       "calculated": false,

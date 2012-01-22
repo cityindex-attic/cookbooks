@@ -40,6 +40,13 @@ attribute "shapado/recaptcha_private_key",
   :display_name => "Shapado Recaptcha Private Key",
   :recipes => ["shapado::default","shapado::install_shapado"]
 
+attribute "shapado/repository",
+  :display_name => "Shapado Git Repository",
+  :description => "The shapado git repository from which to fetch the shapado application code",
+  :required => "required",
+  :default => "git://github.com/cityindex/shapado.git",
+  :recipes => ["shapado::install_shapado"]
+
 attribute "shapado/version",
   :display_name => "Shapado Version",
   :description => "The version/branch/tag/commit of the gitorious repo to use",

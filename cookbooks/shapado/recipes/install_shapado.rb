@@ -51,20 +51,20 @@ end
 gem_package "bundler"
 
 git shapado_install_dir do
-  repository "git://gitorious.org/shapado/shapado.git"
+  repository node[:shapado][:repository]
   revision node[:shapado][:version]
   action :sync
   not_if { ::File.directory?(shapado_install_dir) }
 end
 
-cookbook_file "/tmp/answer_wrapper.patch" do
-  source "answer_wrapper.patch"
-end
-
-bash "Shapado apply app/mustache/answer_wrapper.rb patch" do
-  cwd shapado_install_dir
-  code "patch -p0 </tmp/answer_wrapper.patch"
-end
+#cookbook_file "/tmp/answer_wrapper.patch" do
+#  source "answer_wrapper.patch"
+#end
+#
+#bash "Shapado apply app/mustache/answer_wrapper.rb patch" do
+#  cwd shapado_install_dir
+#  code "patch -p0 </tmp/answer_wrapper.patch"
+#end
 
 # TODO: Lots of good configuration bits like enabling social networking and google analytics
 template ::File.join(shapado_install_dir, "config", "shapado.yml") do
