@@ -43,7 +43,7 @@ attribute "shapado/recaptcha_private_key",
 attribute "shapado/repository",
   :display_name => "Shapado Git Repository",
   :description => "The shapado git repository from which to fetch the shapado application code",
-  :required => "required",
+  :required => "optional",
   :default => "git://github.com/cityindex/shapado.git",
   :recipes => ["shapado::install_shapado"]
 

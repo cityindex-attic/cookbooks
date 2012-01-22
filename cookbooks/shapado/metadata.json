@@ -269,7 +269,7 @@
       "description": "Version of HTTP Gzip"
     },
     "shapado/repository": {
-      "required": "required",
+      "required": "optional",
       "calculated": false,
       "choice": [
 
