@@ -48,7 +48,9 @@ gem update --system
   EOF
 end
 
-gem_package "bundler"
+gem_package "bundler" do
+  gem_binary ::File.join(node[:rvm][:install_path], 'bin', 'gem')
+end
 
 git shapado_install_dir do
   repository node[:shapado][:repository]
@@ -57,14 +59,7 @@ git shapado_install_dir do
   not_if { ::File.directory?(shapado_install_dir) }
 end
 
-#cookbook_file "/tmp/answer_wrapper.patch" do
-#  source "answer_wrapper.patch"
-#end
-#
-#bash "Shapado apply app/mustache/answer_wrapper.rb patch" do
-#  cwd shapado_install_dir
-#  code "patch -p0 </tmp/answer_wrapper.patch"
-#end
+# Need to use the current config template from git, rather than using a static one here.
 
 # TODO: Lots of good configuration bits like enabling social networking and google analytics
 template ::File.join(shapado_install_dir, "config", "shapado.yml") do
@@ -74,7 +69,7 @@ end
 
 bash "Shapado gem bundle install" do
   cwd shapado_install_dir
-  code "bundle install"
+  code "rvm exec bundle install"
 end
 
 bash "Shapado copy config files" do
