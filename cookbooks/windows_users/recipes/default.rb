@@ -16,7 +16,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-user "ntp" do
-  comment "NTPd service user"
-  password "Large12Coffee12Knife"
-end
+
+#user "ntp" do
+#  comment "NTPd service user"
+#  password "Large12Coffee12Knife"
+#end

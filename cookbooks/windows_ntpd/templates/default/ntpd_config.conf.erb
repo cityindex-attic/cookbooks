@@ -1,0 +1,30 @@
+# NTP Network Time Protocol 
+# **** ATTENTION ****: *You have to restart the NTP service when you change this file to activate the changes* 
+# PLEASE CHECK THIS FILE CAREFULLY AND MODIFY IT IF REQUIRED 
+# please check http://www.ntp.org for additional documentation and background information
+# Use drift file 
+driftfile "<%= @ntp_install_dir %>\etc\ntp.drift"
+
+# your local system clock, could be used as a backup
+# (this is only useful if you need to distribute time no matter how good or bad it is)
+#server 127.127.1.0
+# but it should operate at a high stratum level to let the clients know and force them to
+# use any other timesource they may have.
+#fudge 127.127.1.0 stratum 12
+
+# Use a NTP server from the ntp pool project (see http://www.pool.ntp.org)
+# Please note that you need at least four different servers to be at least protected against
+# one falseticker. If you only rely on internet time, it is highly recommended to add
+# additional servers here. 
+# The 'iburst' keyword speeds up initial synchronization, please check the documentation for more details!
+ server 0.amazon.pool.ntp.org iburst
+ server 1.amazon.pool.ntp.org iburst
+ server 2.amazon.pool.ntp.org iburst
+ server 3.amazon.pool.ntp.org iburst
+
+###########################################################
+
+enable stats
+statsdir "<%= @ntp_install_dir %>\etc\"
+statistics loopstats peerstats clockstats
+###########################################################
