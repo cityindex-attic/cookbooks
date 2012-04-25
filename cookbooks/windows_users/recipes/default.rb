@@ -17,7 +17,35 @@
 # limitations under the License.
 #
 
-#user "ntp" do
-#  comment "NTPd service user"
-#  password "Large12Coffee12Knife"
-#end
+# Super admins get access to everything
+super_admins = data_bag('super_admins')
+ 
+super_admins.each do |username|
+  super_admin = data_bag_item('super_admins', username)
+   
+  user(username) do
+  	password super_admin['password']
+  end
+  windows_batch "Add #{username} to load administrators group" do
+    code <<-EOH
+    net localgroup administrators #{username} /add
+    EOH
+  end
+  
+end
+
+#And the principal role_admins also get access (pricipal is defined as the first one)
+role_admins = data_bag("#{node['roles'][0]}_admins")
+ 
+role_admins.each do |username|
+  role_admin = data_bag_item("#{node['roles'][0]}_admins", username)
+   
+  user(username) do
+  	password role_admin['password']
+  end
+  windows_batch "Add #{username} to load administrators group" do
+    code <<-EOH
+    net localgroup administrators #{username} /add
+    EOH
+  end
+end
