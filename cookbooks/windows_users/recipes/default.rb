@@ -22,14 +22,17 @@ super_admins = data_bag('super_admins')
  
 super_admins.each do |username|
   super_admin = data_bag_item('super_admins', username)
-   
+  
   user(username) do
   	password super_admin['password']
   end
+  has_executed_file_flag = "#{ENV['TEMP']}\\net_localgroup_administrators_#{username}_add.has_run"
   windows_batch "Add #{username} to load administrators group" do
     code <<-EOH
     net localgroup administrators #{username} /add
+    echo "success" > #{has_executed_file_flag}
     EOH
+    creates "#{has_executed_file_flag}"
   end
   
 end
@@ -43,9 +46,12 @@ role_admins.each do |username|
   user(username) do
   	password role_admin['password']
   end
+  has_executed_file_flag = "#{ENV['TEMP']}\\net_localgroup_administrators_#{username}_add.has_run"
   windows_batch "Add #{username} to load administrators group" do
     code <<-EOH
     net localgroup administrators #{username} /add
+    echo "success" > #{has_executed_file_flag}
     EOH
+    creates "#{has_executed_file_flag}"
   end
 end
