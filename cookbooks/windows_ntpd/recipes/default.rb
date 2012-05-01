@@ -51,7 +51,7 @@ windows_batch "Break the dependancy of Ec2Config on W32Time, so that NTPd can st
   EOH
 end
 
-windows_package "Meinberg NTPd v4 for Windows" do
+windows_package "Network Time Protocol" do
   source "http://www.meinberg.de/download/ntp/windows/ntp-4.2.4p8@lennon-o-lpv-win32-setup.exe"
   options "/USEFILE=\"#{ntp_install_settings}\""
   action :install
@@ -63,7 +63,7 @@ windows_batch "Set Ec2Config to depend NTP instead of W32Time" do
   EOH
 end
 
-windows_package "Meinberg NTP Time Server Monitor" do
+windows_package "NTP Time Server Monitor 1.04" do
   source "http://www.meinberg.de/download/ntp/windows/time-server-monitor/ntp-time-server-monitor.exe"
   action :install
 end
