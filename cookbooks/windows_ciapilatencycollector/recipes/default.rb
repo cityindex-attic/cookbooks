@@ -19,7 +19,7 @@
 
 #TODO:  need to pass in CIAPI endpoints & credentials on command line, rather than have to enter them
 #       in modal popup
-windows_package "CIAPI Latency Collector" do
+windows_package "City Index CIAPI Latency Collector v1.0.64" do
   source "http://ci.labs.cityindex.com:8080/job/CiapiLatencyCollector/ws/_setup/CiapiLatencyCollector.msi"
   options "/qb"
   action :install
