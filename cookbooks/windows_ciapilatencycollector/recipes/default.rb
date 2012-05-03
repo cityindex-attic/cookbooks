@@ -17,10 +17,16 @@
 # limitations under the License.
 #
 
-#TODO:  need to pass in CIAPI endpoints & credentials on command line, rather than have to enter them
-#       in modal popup
-windows_package "City Index CIAPI Latency Collector v1.0.64" do
+windows_package "City Index CIAPI Latency Collector" do
   source "http://ci.labs.cityindex.com:8080/job/CiapiLatencyCollector/ws/_setup/CiapiLatencyCollector.msi"
-  options "/qb"
+  options "/quiet"
   action :install
+end
+
+ciapilatencycollector_install_dir = "#{ENV['ProgramFiles(x86)']}\\City Index\\CIAPI Latency Collector"
+
+windows_batch "Configure CiapiLatencyCollector" do
+  code <<-EOH
+  "#{ciapilatencycollector_install_dir}\\CiapiLatencyCollectorConfig.exe -username:XX870869 -password:password"
+  EOH
 end
