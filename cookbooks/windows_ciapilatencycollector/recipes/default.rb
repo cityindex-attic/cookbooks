@@ -27,6 +27,6 @@ ciapilatencycollector_install_dir = "#{ENV['ProgramFiles(x86)']}\\City Index\\CI
 
 windows_batch "Configure CiapiLatencyCollector" do
   code <<-EOH
-  "#{ciapilatencycollector_install_dir}\\CiapiLatencyCollectorConfig.exe -username:XX870869 -password:password"
+  "#{ciapilatencycollector_install_dir}\\CiapiLatencyCollectorConfig.exe" -username:XX870869 -password:password
   EOH
 end
