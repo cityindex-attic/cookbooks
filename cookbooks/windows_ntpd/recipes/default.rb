@@ -22,7 +22,7 @@ raise ArgumentError, 'You must override node["windows_ntpd"]["service_password"]
 
 ntp_install_settings = "#{ENV['TEMP']}\\ntpd_installer_settings.ini"
 ntp_install_dir = "#{ENV['ProgramFiles']}\\NTP"
-ntp_config_file = "#{ntp_install_dir}\\ntpd_config.conf"
+ntp_config_file = "#{ntp_install_dir}\\etc\\ntp.conf"
 
 template "#{ntp_install_settings}" do
   source "ntpd_installer_settings.ini.erb"
