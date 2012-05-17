@@ -19,7 +19,18 @@ Allows bootstrapping:
 
     knife bootstrap windows winrm 177.71.182.250 -r "role[ciapi_latency_collector]" -x Administrator -P "_secret_"
 
-
 Allows kicking off chef-client run from management workstation
 
     knife winrm 50.112.111.248 'chef-client -c c:/chef/client.rb' -m -x Administrator -P "_secret_"
+
+List details of nodes:
+
+    knife search node "role:ciapi*" -m
+
+List details of specific node:
+
+    knife search node "name:*SCI*" -m
+
+or by IP
+
+    knife search node "ec2*public_ipv4:23.21.131.181" -m
