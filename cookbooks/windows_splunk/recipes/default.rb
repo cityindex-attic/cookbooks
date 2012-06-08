@@ -19,10 +19,14 @@
 
 splunk_home = "C:\\Program Files\\SplunkUniversalForwarder"
 
+#windows_package "Universal Forwarder" do
+#  action :remove
+#end
+
 #install forwarder package, enabling collection of standard windows metrics
 windows_package "Universal Forwarder" do
   source "http://download.splunk.com/releases/4.3.2/universalforwarder/windows/splunkforwarder-4.3.2-123586-x64-release.msi"
-  options "/qb AGREETOLICENSE=yes LAUNCHSPLUNK=1 SERVICESTARTTYPE=auto WINEVENTLOG_APP_ENABLE=1 WINEVENTLOG_SEC_ENABLE=1 WINEVENTLOG_SYS_ENABLE=1 WINEVENTLOG_FWD_ENABLE=1 WINEVENTLOG_SET_ENABLE=1 ENABLEADMON=1"
+  options "/qb AGREETOLICENSE=yes LAUNCHSPLUNK=1 SERVICESTARTTYPE=auto WINEVENTLOG_APP_ENABLE=1 WINEVENTLOG_SEC_ENABLE=1 WINEVENTLOG_SYS_ENABLE=1 WINEVENTLOG_FWD_ENABLE=1 WINEVENTLOG_SET_ENABLE=1 ENABLEADMON=1 PERFMON=cpu,memory,network,diskspace"
   action :install
 end
 
