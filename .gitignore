@@ -1,2 +1,3 @@
 .chef/
+.ec2/
 cookbooks/windows_splunk/files/default/stormforwarder_03a1e658693e11e18d40123139335bf7/
