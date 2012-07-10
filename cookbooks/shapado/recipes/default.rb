@@ -3,10 +3,12 @@
 # Recipe:: default
 #
 #  OpsCode Chef Cookbooks
-#  Copyright 2011 CityIndex Ltd.
+#  Copyright 2011-2012 CityIndex Ltd.
 #
 #  This product includes software developed at
 #    CityIndex Ltd. (http://www.cityindex.com)
+
+rightscale_marker :begin
 
 node[:rails][:version] = "2.3.11"
 
@@ -91,3 +93,5 @@ nginx_enable_vhost node[:shapado][:fqdn] do
   shapado_path shapado_install_dir
   create_doc_root false
 end
+
+rightscale_marker :end
