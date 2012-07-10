@@ -21,7 +21,7 @@
 #
 #bundle exec rake bootstrap RAILS_ENV=production
 
-rs_utils_marker :begin
+rightscale_marker :begin
 
 node[:rvm][:ruby] = "ruby-1.9.2-p180"
 node[:rvm][:install_path] = "/opt/rvm"
@@ -116,4 +116,4 @@ nginx_enable_vhost node[:shapado][:fqdn] do
   create_doc_root false
 end
 
-rs_utils_marker :end
+rightscale_marker :end

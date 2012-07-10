@@ -17,7 +17,7 @@ base: &common
   enable_groups: false
   default_language: en
   enable_i18n: false
-  default_timezone: "<%= node[:rs_utils][:timezone] %>"
+  default_timezone: "<%= node[:rightscale][:timezone] %>"
 
   smtp:
     activate: false
