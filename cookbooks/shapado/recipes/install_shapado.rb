@@ -33,7 +33,7 @@ include_recipe "unicorn::setup_unicorn"
 
 shapado_install_dir = ::File.join(node[:nginx][:content_dir], "shapado")
 
-if(node[:shapado][:recaptcha_enable] && (!node[:shapado][:recaptcha_public_key] || node[:shapado][:recaptcha_private_key]))
+if(node[:shapado][:recaptcha_enable] == "true" && (node[:shapado][:recaptcha_public_key].empty? || node[:shapado][:recaptcha_private_key].empty?))
   raise "Recaptcha support for shapado was enabled, but the public or private API key was empty"
 end
 

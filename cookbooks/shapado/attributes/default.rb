@@ -1,3 +1,5 @@
 default[:shapado][:repository] = "git://github.com/cityindex/shapado.git"
 default[:shapado][:version] = "master"
-default[:shapado][:recaptcha_enable] = false
+default[:shapado][:recaptcha_enable] = "false"
+default[:shapado][:recaptcha_public_key] = ""
+default[:shapado][:recaptcha_private_key] = ""

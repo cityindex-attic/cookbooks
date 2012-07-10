@@ -12,9 +12,9 @@ rightscale_marker :begin
 
 node[:rails][:version] = "2.3.11"
 
-include_recipe "nginx::default"
+include_recipe "nginx::install_from_package"
 include_recipe "rails::install"
-include_recipe "unicorn::default"
+include_recipe "unicorn::install_unicorn"
 
 shapado_install_dir = ::File.join(node[:nginx][:content_dir], "shapado")
 gemset_file = "shapado-#{node[:shapado][:version]}.gems"
