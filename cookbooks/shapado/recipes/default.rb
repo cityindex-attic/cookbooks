@@ -51,6 +51,7 @@ template ::File.join(shapado_install_dir, "config", "shapado.yml") do
 end
 
 bash "Install gems & bootstrap shapado" do
+  environment ({'rvm_path' => node[:rvm][:install_path]})
   cwd ::File.join(node[:nginx][:content_dir], "shapado")
   code <<-EOF
 rvm gemset import #{gemset_filepath}

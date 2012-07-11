@@ -68,6 +68,7 @@ template ::File.join(shapado_install_dir, "config", "shapado.yml") do
 end
 
 bash "Shapado gem bundle install" do
+  environment ({'rvm_path' => node[:rvm][:install_path]})
   cwd shapado_install_dir
   code "rvm exec bundle install"
 end
