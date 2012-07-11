@@ -14,10 +14,11 @@ node[:rails][:version] = "2.3.11"
 node['rvm']['default_ruby'] = 'ree-1.8.7-2011.03@shapado'
 node['rvm']['gem_package']['rvm_string'] = 'ree-1.8.7-2011.03@shapado'
 
+include_recipe "rvm::default"
+include_recipe "rvm::gem_package"
 include_recipe "nginx::install_from_package"
 include_recipe "rails::install"
 include_recipe "unicorn::install_unicorn"
-include_recipe "rvm::gem_package"
 
 shapado_install_dir = ::File.join(node[:nginx][:content_dir], "shapado")
 gemset_file = "shapado-#{node[:shapado][:version]}.gems"
@@ -53,16 +54,10 @@ template ::File.join(shapado_install_dir, "config", "shapado.yml") do
   variables(:uri => node[:shapado][:fqdn])
 end
 
-ruby_block "Install ruby gems for Shapado" do
-  block do
-    Chef::RVM::ShellHelpers.rvm_wrap_cmd("rvm gemset import #{gemset_filepath}")
-  end
-end
-
-bash "Bootstrap shapado" do
+rvm_shell "Bootstrap shapado" do
   cwd ::File.join(node[:nginx][:content_dir], "shapado")
   code <<-EOF
-#rvm gemset import #{gemset_filepath}
+rvm gemset import #{gemset_filepath}
 
 #rake gems:install
 
