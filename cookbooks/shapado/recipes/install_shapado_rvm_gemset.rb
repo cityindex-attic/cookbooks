@@ -11,10 +11,13 @@
 rightscale_marker :begin
 
 node[:rails][:version] = "2.3.11"
+node['rvm']['default_ruby'] = 'ree-1.8.7-2011.03@shapado'
+node['rvm']['gem_package']['rvm_string'] = 'ree-1.8.7-2011.03@shapado'
 
 include_recipe "nginx::install_from_package"
 include_recipe "rails::install"
 include_recipe "unicorn::install_unicorn"
+include_recipe "rvm::gem_package"
 
 shapado_install_dir = ::File.join(node[:nginx][:content_dir], "shapado")
 gemset_file = "shapado-#{node[:shapado][:version]}.gems"
@@ -50,11 +53,16 @@ template ::File.join(shapado_install_dir, "config", "shapado.yml") do
   variables(:uri => node[:shapado][:fqdn])
 end
 
-bash "Install gems & bootstrap shapado" do
-  environment ({'rvm_path' => node[:rvm][:install_path]})
+ruby_block "Install ruby gems for Shapado" do
+  block do
+    Chef::RVM::ShellHelpers.rvm_wrap_cmd("rvm gemset import #{gemset_filepath}")
+  end
+end
+
+bash "Bootstrap shapado" do
   cwd ::File.join(node[:nginx][:content_dir], "shapado")
   code <<-EOF
-rvm gemset import #{gemset_filepath}
+#rvm gemset import #{gemset_filepath}
 
 #rake gems:install
 
@@ -74,7 +82,7 @@ exit 0
 end
 
 # In v3.10.6 & HEAD this css file is not generated properly, maybe we can remove this one day?
-remote_file ::File.join(shapado_install_dir, "public", "stylesheets", "base_packaged.css") do
+cookbook_file ::File.join(shapado_install_dir, "public", "stylesheets", "base_packaged.css") do
   source "base_packaged.css"
   backup false
 end

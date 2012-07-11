@@ -23,11 +23,14 @@
 
 rightscale_marker :begin
 
-node[:rvm][:ruby] = "ruby-1.9.2-p180"
-node[:rvm][:install_path] = "/opt/rvm"
+
+node['rvm']['default_ruby'] = 'ruby-1.9.2-p180@shapado'
+node['rvm']['gem_package']['rvm_string'] = 'ruby-1.9.2-p180@shapado'
+
+# node[:rvm][:ruby] = "ruby-1.9.2-p180"
 node[:unicorn][:version] = "4.1.1"
 
-include_recipe "rvm::default"
+include_recipe "rvm::gem_package"
 include_recipe "nginx::install_from_package"
 include_recipe "unicorn::setup_unicorn"
 
@@ -48,9 +51,7 @@ gem update --system
   EOF
 end
 
-gem_package "bundler" do
-  gem_binary ::File.join(node[:rvm][:install_path], 'bin', 'gem')
-end
+gem_package "bundler"
 
 git shapado_install_dir do
   repository node[:shapado][:repository]
@@ -68,7 +69,6 @@ template ::File.join(shapado_install_dir, "config", "shapado.yml") do
 end
 
 bash "Shapado gem bundle install" do
-  environment ({'rvm_path' => node[:rvm][:install_path]})
   cwd shapado_install_dir
   code "rvm exec bundle install"
 end
