@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: shapado
-# Recipe:: v3.x
+# Recipe:: install_shapado_bundler
 #
 #  OpsCode Chef Cookbooks
 #  Copyright 2012 CityIndex Ltd.
