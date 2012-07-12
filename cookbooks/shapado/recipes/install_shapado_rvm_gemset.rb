@@ -28,6 +28,12 @@ if(node[:shapado][:recaptcha_enable] == "true" && (node[:shapado][:recaptcha_pub
   raise "Recaptcha support for shapado was enabled, but the public or private API key was empty"
 end
 
+# Switch to the latest stable rubygems for Rails 2.3.x
+rvm_shell "Switch to the latest stable rubygems for Rails 2.3.x" do
+  ruby_string 'ree-1.8.7-2011.03@shapado'
+  code "rvm rubygems 1.3.7"
+end
+
 # Required for the "magic" gem
 package "file"
 
@@ -55,6 +61,7 @@ template ::File.join(shapado_install_dir, "config", "shapado.yml") do
 end
 
 rvm_shell "Bootstrap shapado" do
+  ruby_string 'ree-1.8.7-2011.03@shapado'
   cwd ::File.join(node[:nginx][:content_dir], "shapado")
   code <<-EOF
 rvm gemset import #{gemset_filepath}
@@ -87,6 +94,8 @@ unicorn_app "shapado" do
   app_path shapado_install_dir
   cookbook "shapado"
   template "unicorn.rb.erb"
+  # This is totally hard coded, and maybe we should try a little harder to find it dynamically?
+  unicorn_rails_bin '/usr/local/rvm/gems/ree-1.8.7-2011.03@shapado/bin/unicorn_rails'
 end
 
 nginx_enable_vhost node[:shapado][:fqdn] do

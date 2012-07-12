@@ -12,8 +12,8 @@ supports "ubuntu"
 end
 
 recipe "shapado::default","Installs and configures the Shapado FAQ rails application using ruby_enterprise and unicorn"
-recipe "shapado::install_shapado_rvm_gemset","Installs and configures shapado.  The required gems are installed from an RVM gemset file.  This is for 'older' versions of Shapado"
-recipe "shapado::install_shapado_bundler","Does the same thing as install_shapado_rvm_gemset.  The required gems are installed with bundler.  This is for 'newer' versions of Shapado"
+recipe "shapado::install_shapado_rvm_gemset","Installs and configures shapado.  The required gems are installed from an RVM gemset file.  This is for 'older' versions of Shapado, effectively anything using Rails 2.3.x"
+recipe "shapado::install_shapado_bundler","Does the same thing as install_shapado_rvm_gemset.  The required gems are installed with bundler.  This is for 'newer' versions of Shapado, effectively anything using Rails 3.x"
 
 attribute "shapado/fqdn",
   :display_name => "Shapado VHOST FQDN",
