@@ -52,7 +52,6 @@ treetop -v1.4.9 --no-rdoc --no-ri --ignore-dependencies
 twitter-text -v1.1.1 --no-rdoc --no-ri --ignore-dependencies
 twitter_oauth -v0.4.3 --no-rdoc --no-ri --ignore-dependencies
 tzinfo -v0.3.26 --no-rdoc --no-ri --ignore-dependencies
-unicorn -v3.5.0 --no-rdoc --no-ri --ignore-dependencies
 uuidtools -v2.1.1 --no-rdoc --no-ri --ignore-dependencies
 warden -v0.10.7 --no-rdoc --no-ri --ignore-dependencies
 whatlanguage -v1.0.0 --no-rdoc --no-ri --ignore-dependencies

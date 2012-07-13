@@ -66,6 +66,8 @@ rvm_shell "Bootstrap shapado" do
   code <<-EOF
 rvm gemset import #{gemset_filepath}
 
+rvm wrapper ree-1.8.7-2011.03@shapado rvm unicorn_rails
+
 #rake gems:install
 
 cp config/database.yml.sample config/database.yml
@@ -95,7 +97,7 @@ unicorn_app "shapado" do
   cookbook "shapado"
   template "unicorn.rb.erb"
   # This is totally hard coded, and maybe we should try a little harder to find it dynamically?
-  unicorn_rails_bin '/usr/local/rvm/gems/ree-1.8.7-2011.03@shapado/bin/unicorn_rails'
+  unicorn_rails_bin '/usr/local/rvm/bin/rvm_unicorn_rails'
 end
 
 nginx_enable_vhost node[:shapado][:fqdn] do
