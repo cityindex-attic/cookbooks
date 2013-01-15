@@ -24,7 +24,7 @@
 rightscale_marker :begin
 
 
-node['rvm']['default_ruby'] = 'ruby-1.9.2-p180@shapado'
+node['rvm']['default_ruby'] = 'ruby-1.9.3-p194@shapado'
 node['rvm']['gem_package']['rvm_string'] = 'ruby-1.9.2-p180@shapado'
 
 # node[:rvm][:ruby] = "ruby-1.9.2-p180"
