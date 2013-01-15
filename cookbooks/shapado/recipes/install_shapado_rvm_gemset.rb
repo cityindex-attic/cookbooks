@@ -10,7 +10,7 @@
 
 rightscale_marker :begin
 
-node[:rails][:version] = "2.3.11"
+node[:rails][:version] = "2.3.15"
 node['rvm']['default_ruby'] = 'ree-1.8.7-2011.03@shapado'
 node['rvm']['gem_package']['rvm_string'] = 'ree-1.8.7-2011.03@shapado'
 

@@ -1,10 +1,10 @@
 # default.gems generated gem export file. Note that any env variable settings will be missing. Append these after using a ';' field separator
 abstract -v1.0.0 --no-rdoc --no-ri --ignore-dependencies
-actionmailer -v2.3.11 --no-rdoc --no-ri --ignore-dependencies
-actionpack -v2.3.11 --no-rdoc --no-ri --ignore-dependencies
-activerecord -v2.3.11 --no-rdoc --no-ri --ignore-dependencies
-activeresource -v2.3.11 --no-rdoc --no-ri --ignore-dependencies
-activesupport -v2.3.11 --no-rdoc --no-ri --ignore-dependencies
+actionmailer -v2.3.15 --no-rdoc --no-ri --ignore-dependencies
+actionpack -v2.3.15 --no-rdoc --no-ri --ignore-dependencies
+activerecord -v2.3.15 --no-rdoc --no-ri --ignore-dependencies
+activeresource -v2.3.15 --no-rdoc --no-ri --ignore-dependencies
+activesupport -v2.3.15 --no-rdoc --no-ri --ignore-dependencies
 addressable -v2.2.5 --no-rdoc --no-ri --ignore-dependencies
 bson -v1.1.4 --no-rdoc --no-ri --ignore-dependencies
 bson_ext -v1.1.4 --no-rdoc --no-ri --ignore-dependencies
@@ -40,7 +40,7 @@ rack -v1.1.2 --no-rdoc --no-ri --ignore-dependencies
 rack-mount -v0.6.14 --no-rdoc --no-ri --ignore-dependencies
 rack-recaptcha -v0.2.2 --no-rdoc --no-ri --ignore-dependencies
 rack-test -v0.5.7 --no-rdoc --no-ri --ignore-dependencies
-rails -v2.3.11 --no-rdoc --no-ri --ignore-dependencies
+rails -v2.3.15 --no-rdoc --no-ri --ignore-dependencies
 rake -v0.8.7 --no-rdoc --no-ri --ignore-dependencies
 rdiscount -v1.6.5 --no-rdoc --no-ri --ignore-dependencies
 ruby-openid -v2.1.8 --no-rdoc --no-ri --ignore-dependencies
