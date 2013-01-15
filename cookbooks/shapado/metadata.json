@@ -1,64 +1,295 @@
 {
-  "dependencies": {
-    "unicorn": ">= 0.0.0",
-    "nginx": ">= 0.0.0",
-    "rightscale": ">= 0.0.0",
-    "rvm": ">= 0.0.0"
-  },
   "name": "shapado",
+  "description": "Installs/Configures shapado",
+  "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES:\n\n= USAGE:\n\n",
+  "maintainer": "CityIndex Ltd.",
   "maintainer_email": "me@ryangeyer.com",
+  "license": "Apache 2.0",
+  "platforms": {
+    "ubuntu": ">= 0.0.0"
+  },
+  "dependencies": {
+    "rvm": ">= 0.0.0",
+    "nginx": ">= 0.0.0",
+    "unicorn": ">= 0.0.0",
+    "rightscale": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
   "attributes": {
-    "nginx/aliases": {
-      "required": "recommended",
-      "calculated": false,
-      "choice": [
-
-      ],
-      "default": [
-
-      ],
-      "type": "array",
+    "shapado/fqdn": {
+      "display_name": "Shapado VHOST FQDN",
+      "description": "The fully qualified domain name (FQDN) of the new vhost to deploy shapado to.  Example www.apache.org",
+      "required": "required",
       "recipes": [
         "shapado::install_shapado_rvm_gemset",
         "shapado::install_shapado_bundler"
       ],
-      "description": "The possible hostname aliases (if any) for the vhost.  For instance to host the same content at www.yourdomain.com and yourdomain.com simply put \"yourdomain.com\" here.  Many values can be supplied, separated by spaces. The full syntax which Nginx supports for the server_name directive are applicable here, http://wiki.nginx.org/HttpCoreModule#server_name",
-      "display_name": "Nginx Site Aliases"
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
     },
-    "nginx/worker_connections": {
-      "required": "optional",
-      "calculated": false,
-      "choice": [
-
-      ],
-      "default": "1024",
-      "type": "string",
+    "shapado/aliases": {
+      "display_name": "Shapado VHOST Aliases",
+      "description": "The possible hostname aliases (if any) for the vhost.  For instance to host the same content at www.yourdomain.com and yourdomain.com simply put \"yourdomain.com\" here.  Many values can be supplied, separated by spaces",
+      "default": "",
       "recipes": [
         "shapado::install_shapado_rvm_gemset",
         "shapado::install_shapado_bundler"
       ],
-      "description": "Number of connections per worker",
-      "display_name": "Nginx Worker Connections"
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
+    },
+    "shapado/recaptcha_enable": {
+      "display_name": "Shapado Enable Recaptcha",
+      "description": "A boolean indicating of recaptcha support should be used.  If true, shapado/recaptcha_public_key and shapado/recaptcha_private_key must be set",
+      "default": "false",
+      "recipes": [
+        "shapado::install_shapado_rvm_gemset",
+        "shapado::install_shapado_bundler"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
+    },
+    "shapado/recaptcha_public_key": {
+      "display_name": "Shapado Recaptcha Public Key",
+      "recipes": [
+        "shapado::install_shapado_rvm_gemset",
+        "shapado::install_shapado_bundler"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
+    },
+    "shapado/recaptcha_private_key": {
+      "display_name": "Shapado Recaptcha Private Key",
+      "recipes": [
+        "shapado::install_shapado_rvm_gemset",
+        "shapado::install_shapado_bundler"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
+    },
+    "shapado/repository": {
+      "display_name": "Shapado Git Repository",
+      "description": "The shapado git repository from which to fetch the shapado application code",
+      "required": "optional",
+      "default": "git://github.com/cityindex/shapado.git",
+      "recipes": [
+        "shapado::install_shapado_bundler"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "shapado/version": {
+      "display_name": "Shapado Version",
+      "description": "The version/branch/tag/commit of the gitorious repo to use",
+      "required": "optional",
+      "default": "master",
+      "recipes": [
+        "shapado::install_shapado_rvm_gemset",
+        "shapado::install_shapado_bundler"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
     },
     "rails/version": {
+      "display_name": "Rails Version",
+      "description": "The full version number of rails to install.  I.E. 3.0.5  If no value is provided, the latest available version is installed.",
       "required": "optional",
-      "calculated": false,
-      "choice": [
-
-      ],
-      "type": "string",
       "recipes": [
         "shapado::default"
       ],
-      "description": "The full version number of rails to install.  I.E. 3.0.5  If no value is provided, the latest available version is installed.",
-      "display_name": "Rails Version"
-    },
-    "nginx/gzip_types": {
-      "required": "optional",
-      "calculated": false,
       "choice": [
 
       ],
+      "calculated": false,
+      "type": "string"
+    },
+    "rails/environment": {
+      "display_name": "Rails Environment",
+      "description": "The desired rails environment to run.  I.E. production",
+      "required": "required",
+      "recipes": [
+        "shapado::install_shapado_rvm_gemset",
+        "shapado::install_shapado_bundler"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "nginx/dir": {
+      "display_name": "Nginx Directory",
+      "description": "Location of nginx configuration files",
+      "default": "/etc/nginx",
+      "recipes": [
+        "shapado::install_shapado_rvm_gemset",
+        "shapado::install_shapado_bundler"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
+    },
+    "nginx/content_dir": {
+      "display_name": "Nginx Content Directory",
+      "description": "Location of nginx content files",
+      "default": "/var/www",
+      "recipes": [
+        "shapado::install_shapado_rvm_gemset",
+        "shapado::install_shapado_bundler"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
+    },
+    "nginx/log_dir": {
+      "display_name": "Nginx Log Directory",
+      "description": "Location for nginx logs",
+      "default": "/var/log/nginx",
+      "recipes": [
+        "shapado::install_shapado_rvm_gemset",
+        "shapado::install_shapado_bundler"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
+    },
+    "nginx/user": {
+      "display_name": "Nginx User",
+      "description": "User nginx will run as",
+      "default": "www-data",
+      "recipes": [
+        "shapado::install_shapado_rvm_gemset",
+        "shapado::install_shapado_bundler"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
+    },
+    "nginx/binary": {
+      "display_name": "Nginx Binary",
+      "description": "Location of the nginx server binary",
+      "default": "/usr/sbin/nginx",
+      "recipes": [
+        "shapado::install_shapado_rvm_gemset",
+        "shapado::install_shapado_bundler"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
+    },
+    "nginx/gzip": {
+      "display_name": "Nginx Gzip",
+      "description": "Whether gzip is enabled",
+      "default": "on",
+      "recipes": [
+        "shapado::install_shapado_rvm_gemset",
+        "shapado::install_shapado_bundler"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
+    },
+    "nginx/gzip_http_version": {
+      "display_name": "Nginx Gzip HTTP Version",
+      "description": "Version of HTTP Gzip",
+      "default": "1.0",
+      "recipes": [
+        "shapado::install_shapado_rvm_gemset",
+        "shapado::install_shapado_bundler"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
+    },
+    "nginx/gzip_comp_level": {
+      "display_name": "Nginx Gzip Compression Level",
+      "description": "Amount of compression to use",
+      "default": "2",
+      "recipes": [
+        "shapado::install_shapado_rvm_gemset",
+        "shapado::install_shapado_bundler"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
+    },
+    "nginx/gzip_proxied": {
+      "display_name": "Nginx Gzip Proxied",
+      "description": "Whether gzip is proxied",
+      "default": "any",
+      "recipes": [
+        "shapado::install_shapado_rvm_gemset",
+        "shapado::install_shapado_bundler"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
+    },
+    "nginx/gzip_types": {
+      "display_name": "Nginx Gzip Types",
+      "description": "Supported MIME-types for gzip",
+      "type": "array",
       "default": [
         "text/plain",
         "text/html",
@@ -69,163 +300,110 @@
         "application/xml+rss",
         "text/javascript"
       ],
-      "type": "array",
       "recipes": [
         "shapado::install_shapado_rvm_gemset",
         "shapado::install_shapado_bundler"
       ],
-      "description": "Supported MIME-types for gzip",
-      "display_name": "Nginx Gzip Types"
-    },
-    "nginx/binary": {
-      "required": "optional",
-      "calculated": false,
       "choice": [
 
       ],
-      "default": "/usr/sbin/nginx",
-      "type": "string",
+      "calculated": false,
+      "required": "optional"
+    },
+    "nginx/keepalive": {
+      "display_name": "Nginx Keepalive",
+      "description": "Whether to enable keepalive",
+      "default": "on",
       "recipes": [
         "shapado::install_shapado_rvm_gemset",
         "shapado::install_shapado_bundler"
       ],
-      "description": "Location of the nginx server binary",
-      "display_name": "Nginx Binary"
-    },
-    "nginx/user": {
-      "required": "optional",
-      "calculated": false,
       "choice": [
 
       ],
-      "default": "www-data",
-      "type": "string",
-      "recipes": [
-        "shapado::install_shapado_rvm_gemset",
-        "shapado::install_shapado_bundler"
-      ],
-      "description": "User nginx will run as",
-      "display_name": "Nginx User"
-    },
-    "shapado/recaptcha_enable": {
-      "required": "optional",
       "calculated": false,
-      "choice": [
-
-      ],
-      "default": "false",
       "type": "string",
-      "recipes": [
-        "shapado::install_shapado_rvm_gemset",
-        "shapado::install_shapado_bundler"
-      ],
-      "description": "A boolean indicating of recaptcha support should be used.  If true, shapado/recaptcha_public_key and shapado/recaptcha_private_key must be set",
-      "display_name": "Shapado Enable Recaptcha"
+      "required": "optional"
     },
     "nginx/keepalive_timeout": {
-      "required": "optional",
-      "calculated": false,
-      "choice": [
-
-      ],
+      "display_name": "Nginx Keepalive Timeout",
       "default": "65",
-      "type": "string",
       "recipes": [
         "shapado::install_shapado_rvm_gemset",
         "shapado::install_shapado_bundler"
       ],
-      "display_name": "Nginx Keepalive Timeout"
-    },
-    "shapado/recaptcha_public_key": {
-      "required": "optional",
-      "calculated": false,
       "choice": [
 
       ],
+      "calculated": false,
       "type": "string",
+      "required": "optional"
+    },
+    "nginx/worker_processes": {
+      "display_name": "Nginx Worker Processes",
+      "description": "Number of worker processes",
+      "default": "1",
       "recipes": [
         "shapado::install_shapado_rvm_gemset",
         "shapado::install_shapado_bundler"
       ],
-      "display_name": "Shapado Recaptcha Public Key"
-    },
-    "nginx/gzip_proxied": {
-      "required": "optional",
-      "calculated": false,
       "choice": [
 
       ],
-      "default": "any",
+      "calculated": false,
       "type": "string",
+      "required": "optional"
+    },
+    "nginx/worker_connections": {
+      "display_name": "Nginx Worker Connections",
+      "description": "Number of connections per worker",
+      "default": "1024",
       "recipes": [
         "shapado::install_shapado_rvm_gemset",
         "shapado::install_shapado_bundler"
       ],
-      "description": "Whether gzip is proxied",
-      "display_name": "Nginx Gzip Proxied"
-    },
-    "nginx/gzip_comp_level": {
-      "required": "optional",
-      "calculated": false,
       "choice": [
 
       ],
-      "default": "2",
-      "type": "string",
-      "recipes": [
-        "shapado::install_shapado_rvm_gemset",
-        "shapado::install_shapado_bundler"
-      ],
-      "description": "Amount of compression to use",
-      "display_name": "Nginx Gzip Compression Level"
-    },
-    "nginx/dir": {
-      "required": "optional",
       "calculated": false,
-      "choice": [
-
-      ],
-      "default": "/etc/nginx",
       "type": "string",
-      "recipes": [
-        "shapado::install_shapado_rvm_gemset",
-        "shapado::install_shapado_bundler"
-      ],
-      "description": "Location of nginx configuration files",
-      "display_name": "Nginx Directory"
+      "required": "optional"
     },
     "nginx/server_names_hash_bucket_size": {
-      "required": "optional",
-      "calculated": false,
-      "choice": [
-
-      ],
+      "display_name": "Nginx Server Names Hash Bucket Size",
       "default": "64",
-      "type": "string",
       "recipes": [
         "shapado::install_shapado_rvm_gemset",
         "shapado::install_shapado_bundler"
       ],
-      "display_name": "Nginx Server Names Hash Bucket Size"
-    },
-    "shapado/aliases": {
-      "required": "optional",
-      "calculated": false,
       "choice": [
 
       ],
-      "default": "",
+      "calculated": false,
       "type": "string",
+      "required": "optional"
+    },
+    "nginx/aliases": {
+      "display_name": "Nginx Site Aliases",
+      "description": "The possible hostname aliases (if any) for the vhost.  For instance to host the same content at www.yourdomain.com and yourdomain.com simply put \"yourdomain.com\" here.  Many values can be supplied, separated by spaces. The full syntax which Nginx supports for the server_name directive are applicable here, http://wiki.nginx.org/HttpCoreModule#server_name",
+      "type": "array",
+      "default": [
+
+      ],
+      "required": "recommended",
       "recipes": [
         "shapado::install_shapado_rvm_gemset",
         "shapado::install_shapado_bundler"
       ],
-      "description": "The possible hostname aliases (if any) for the vhost.  For instance to host the same content at www.yourdomain.com and yourdomain.com simply put \"yourdomain.com\" here.  Many values can be supplied, separated by spaces",
-      "display_name": "Shapado VHOST Aliases"
+      "choice": [
+
+      ],
+      "calculated": false
     },
     "rightscale/timezone": {
+      "display_name": "Timezone",
+      "description": "Sets the system time to the timezone of the specified input, which must be a valid zoneinfo/tz database entry.  If the input is 'unset' the timezone will use the 'localtime' that's defined in your RightScale account under Settings -> User Settings -> Preferences tab.  You can find a list of valid examples from the timezone pulldown bar in the Preferences tab.  Ex: US/Pacific, US/Eastern",
       "required": "optional",
-      "calculated": false,
       "choice": [
         "Africa/Casablanca",
         "America/Bogota",
@@ -296,198 +474,20 @@
         "localtime"
       ],
       "default": "UTC",
-      "type": "string",
       "recipes": [
         "shapado::default",
         "shapado::install_shapado"
       ],
-      "description": "Sets the system time to the timezone of the specified input, which must be a valid zoneinfo/tz database entry.  If the input is 'unset' the timezone will use the 'localtime' that's defined in your RightScale account under Settings -> User Settings -> Preferences tab.  You can find a list of valid examples from the timezone pulldown bar in the Preferences tab.  Ex: US/Pacific, US/Eastern",
-      "display_name": "Timezone"
-    },
-    "nginx/worker_processes": {
-      "required": "optional",
       "calculated": false,
-      "choice": [
-
-      ],
-      "default": "1",
-      "type": "string",
-      "recipes": [
-        "shapado::install_shapado_rvm_gemset",
-        "shapado::install_shapado_bundler"
-      ],
-      "description": "Number of worker processes",
-      "display_name": "Nginx Worker Processes"
-    },
-    "nginx/gzip_http_version": {
-      "required": "optional",
-      "calculated": false,
-      "choice": [
-
-      ],
-      "default": "1.0",
-      "type": "string",
-      "recipes": [
-        "shapado::install_shapado_rvm_gemset",
-        "shapado::install_shapado_bundler"
-      ],
-      "description": "Version of HTTP Gzip",
-      "display_name": "Nginx Gzip HTTP Version"
-    },
-    "shapado/repository": {
-      "required": "optional",
-      "calculated": false,
-      "choice": [
-
-      ],
-      "default": "git://github.com/cityindex/shapado.git",
-      "type": "string",
-      "recipes": [
-        "shapado::install_shapado_bundler"
-      ],
-      "description": "The shapado git repository from which to fetch the shapado application code",
-      "display_name": "Shapado Git Repository"
-    },
-    "shapado/recaptcha_private_key": {
-      "required": "optional",
-      "calculated": false,
-      "choice": [
-
-      ],
-      "type": "string",
-      "recipes": [
-        "shapado::install_shapado_rvm_gemset",
-        "shapado::install_shapado_bundler"
-      ],
-      "display_name": "Shapado Recaptcha Private Key"
-    },
-    "nginx/log_dir": {
-      "required": "optional",
-      "calculated": false,
-      "choice": [
-
-      ],
-      "default": "/var/log/nginx",
-      "type": "string",
-      "recipes": [
-        "shapado::install_shapado_rvm_gemset",
-        "shapado::install_shapado_bundler"
-      ],
-      "description": "Location for nginx logs",
-      "display_name": "Nginx Log Directory"
-    },
-    "nginx/content_dir": {
-      "required": "optional",
-      "calculated": false,
-      "choice": [
-
-      ],
-      "default": "/var/www",
-      "type": "string",
-      "recipes": [
-        "shapado::install_shapado_rvm_gemset",
-        "shapado::install_shapado_bundler"
-      ],
-      "description": "Location of nginx content files",
-      "display_name": "Nginx Content Directory"
-    },
-    "rails/environment": {
-      "required": "required",
-      "calculated": false,
-      "choice": [
-
-      ],
-      "type": "string",
-      "recipes": [
-        "shapado::install_shapado_rvm_gemset",
-        "shapado::install_shapado_bundler"
-      ],
-      "description": "The desired rails environment to run.  I.E. production",
-      "display_name": "Rails Environment"
-    },
-    "nginx/gzip": {
-      "required": "optional",
-      "calculated": false,
-      "choice": [
-
-      ],
-      "default": "on",
-      "type": "string",
-      "recipes": [
-        "shapado::install_shapado_rvm_gemset",
-        "shapado::install_shapado_bundler"
-      ],
-      "description": "Whether gzip is enabled",
-      "display_name": "Nginx Gzip"
-    },
-    "shapado/version": {
-      "required": "optional",
-      "calculated": false,
-      "choice": [
-
-      ],
-      "default": "master",
-      "type": "string",
-      "recipes": [
-        "shapado::install_shapado_rvm_gemset",
-        "shapado::install_shapado_bundler"
-      ],
-      "description": "The version/branch/tag/commit of the gitorious repo to use",
-      "display_name": "Shapado Version"
-    },
-    "shapado/fqdn": {
-      "required": "required",
-      "calculated": false,
-      "choice": [
-
-      ],
-      "type": "string",
-      "recipes": [
-        "shapado::install_shapado_rvm_gemset",
-        "shapado::install_shapado_bundler"
-      ],
-      "description": "The fully qualified domain name (FQDN) of the new vhost to deploy shapado to.  Example www.apache.org",
-      "display_name": "Shapado VHOST FQDN"
-    },
-    "nginx/keepalive": {
-      "required": "optional",
-      "calculated": false,
-      "choice": [
-
-      ],
-      "default": "on",
-      "type": "string",
-      "recipes": [
-        "shapado::install_shapado_rvm_gemset",
-        "shapado::install_shapado_bundler"
-      ],
-      "description": "Whether to enable keepalive",
-      "display_name": "Nginx Keepalive"
+      "type": "string"
     }
-  },
-  "license": "Apache 2.0",
-  "suggestions": {
-  },
-  "platforms": {
-    "ubuntu": ">= 0.0.0"
-  },
-  "maintainer": "CityIndex Ltd.",
-  "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES:\n\n= USAGE:\n\n",
-  "version": "0.0.3",
-  "recommendations": {
-  },
-  "recipes": {
-    "shapado::install_shapado_rvm_gemset": "Installs and configures shapado.  The required gems are installed from an RVM gemset file.  This is for 'older' versions of Shapado, effectively anything using Rails 2.3.x",
-    "shapado::install_shapado_bundler": "Does the same thing as install_shapado_rvm_gemset.  The required gems are installed with bundler.  This is for 'newer' versions of Shapado, effectively anything using Rails 3.x",
-    "shapado::default": "Installs and configures the Shapado FAQ rails application using ruby_enterprise and unicorn"
   },
   "groupings": {
   },
-  "conflicting": {
+  "recipes": {
+    "shapado::default": "Installs and configures the Shapado FAQ rails application using ruby_enterprise and unicorn",
+    "shapado::install_shapado_rvm_gemset": "Installs and configures shapado.  The required gems are installed from an RVM gemset file.  This is for 'older' versions of Shapado, effectively anything using Rails 2.3.x",
+    "shapado::install_shapado_bundler": "Does the same thing as install_shapado_rvm_gemset.  The required gems are installed with bundler.  This is for 'newer' versions of Shapado, effectively anything using Rails 3.x"
   },
-  "replacing": {
-  },
-  "description": "Installs/Configures shapado",
-  "providing": {
-  }
+  "version": "0.0.3"
 }
