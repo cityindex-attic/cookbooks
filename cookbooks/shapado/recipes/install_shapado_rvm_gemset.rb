@@ -70,7 +70,7 @@ rvm wrapper ree-1.8.7-2011.03@shapado rvm unicorn_rails
 
 #rake gems:install
 
-sed -i "s/^\(require 'rake\/rdoctask'\)//g" Rakefile
+sed -i "s/rake\/rdoctask/rdoc\/task/g" Rakefile
 
 cp config/database.yml.sample config/database.yml
 RAILS_GEM_VERSION=#{node[:rails][:version]} rake asset:packager:build_all

@@ -55,3 +55,4 @@ tzinfo -v0.3.26 --no-rdoc --no-ri --ignore-dependencies
 uuidtools -v2.1.1 --no-rdoc --no-ri --ignore-dependencies
 warden -v0.10.7 --no-rdoc --no-ri --ignore-dependencies
 whatlanguage -v1.0.0 --no-rdoc --no-ri --ignore-dependencies
+rdoc -v3.12 --no-rdoc --no-ri --ignore-dependencies
