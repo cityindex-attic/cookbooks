@@ -1,6 +1,5 @@
 OpsCode Chef Cookbooks
-Copyright 2011 CityIndex Ltd.
+Copyright 2011-2013 CityIndex Ltd.
 
 This product includes software developed at
 	CityIndex Ltd. (http://www.cityindex.com)
-
